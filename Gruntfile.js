@@ -52,12 +52,12 @@ module.exports = function (grunt) {
             '  //try CommonJS, then AMD (require.js), then use global.',
             '  if (typeof module != \'undefined\' && module.exports) {',
             '    module.exports = definition();',
-            '  } else if (typeof define == 'function' && define.amd) {',
-            '    define(definition);'
-            '  } else {'
-            '    context = context || self;'
-            '    context[name] = definition();'
-            '  }
+            '  } else if (typeof define == \'function\' && define.amd) {',
+            '    define(definition);',
+            '  } else {',
+            '    context = context || self;',
+            '    context[name] = definition();',
+            '  }',
             '})(\'Firepad\', function () {'
           ].join('\n'),
           footer: "\nreturn firepad.Firepad; }, this);"
